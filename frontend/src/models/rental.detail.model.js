@@ -1,0 +1,3 @@
+class RentalDetail {
+  constructor() {}
+}

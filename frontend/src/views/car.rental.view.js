@@ -1,0 +1,3 @@
+class CarRentalView {
+  constructor() {}
+}
