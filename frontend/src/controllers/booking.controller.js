@@ -1,3 +1,3 @@
-class CarRentalController {
+class BookingController {
   constructor(tpvView, tpvService) {}
 }

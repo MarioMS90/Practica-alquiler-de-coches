@@ -1,1 +1,1 @@
-const rentalService = new RentalService(new HttpService());
+const bookingService = new BookingService(new HttpService());

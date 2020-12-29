@@ -1,5 +1,5 @@
-class RentalService {
-  ENDPOINT_BOOKING = 'http://localhost/ldldld';
+class BookingService {
+  API_ENDPOINT = 'SecretWord.php';
   constructor(httpService) {
     this.httpService = httpService;
     this.bookings = [];

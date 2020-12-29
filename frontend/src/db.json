@@ -1,7 +1,134 @@
 {
-  "posts": [],
-  "comments": [],
-  "profile": {
-    "name": "typicode"
-  }
+  "clients": [
+    {
+      "id": "1",
+      "dni": "15737817N",
+      "name": "Mario Muñoz",
+      "adress": "C/Loma del Colegial Nº9 P1 1ºB 29620 Torremolinos (Málaga)",
+      "phone": "952388878",
+      "guarantor": "3"
+    },
+    {
+      "id": "2",
+      "dni": "25737817N",
+      "name": "Manuel Perez",
+      "adress": "C/Falsa Nº9 P1 2º",
+      "phone": "625957462",
+      "guarantor": "1"
+    },
+    {
+      "id": "3",
+      "dni": "25737817N",
+      "name": "Diego Pelaez",
+      "adress": "C/Marmota 16",
+      "phone": "628795122",
+      "guarantor": null
+    }
+    {
+      "id": "4",
+      "dni": "15737817N",
+      "name": "Andrés",
+      "adress": "C/Loma del Colegial Nº9 P1 1ºB 29620 Torremolinos (Málaga)",
+      "phone": "952388878",
+      "guarantor": "3"
+    },
+    {
+      "id": "5",
+      "dni": "25737817N",
+      "name": "Juan",
+      "adress": "C/Falsa Nº9 P1 2º",
+      "phone": "625957462",
+      "guarantor": "4"
+    },
+    {
+      "id": "6",
+      "dni": "25737817N",
+      "name": "María",
+      "adress": "C/Marmota 16",
+      "phone": "628795122",
+      "guarantor": null
+    }
+    {
+      "id": "7",
+      "dni": "15737817N",
+      "name": "Yolanda",
+      "adress": "C/Loma del Colegial Nº9 P1 1ºB 29620 Torremolinos (Málaga)",
+      "phone": "952388878",
+      "guarantor": "5"
+    },
+    {
+      "id": "8",
+      "dni": "25737817N",
+      "name": "Fran",
+      "adress": "C/Falsa Nº9 P1 2º",
+      "phone": "625957462",
+      "guarantor": "1"
+    },
+    {
+      "id": "9",
+      "dni": "25737817N",
+      "name": "Jose",
+      "adress": "C/Marmota 16",
+      "phone": "628795122",
+      "guarantor": null
+    }
+  ],
+  "cars": [
+    {
+      "id": "1", 
+      "registration": "1725HZJ", 
+      "brand": "Ford", 
+      "model": "Fiesta", 
+      "colour": "Rojo", 
+      "garage": "1", 
+      "gasolineLiters": "30", 
+      "priceHour": "27"
+    },
+    {
+      "id": "2", 
+      "registration": "2725HZJ", 
+      "brand": "BMW", 
+      "model": "X5", 
+      "colour": "Verde", 
+      "garage": "2", 
+      "gasolineLiters": "40", 
+      "priceHour": "45"
+    },
+    {
+      "id": "3", 
+      "registration": "3725HZJ", 
+      "brand": "Toyota", 
+      "model": "Auris", 
+      "colour": "Blanco", 
+      "garage": "1", 
+      "gasolineLiters": "25", 
+      "priceHour": "20.50"
+    }
+  ],
+  "garages": [
+    {
+      "id": "1",
+      "name": "garaje 1"
+    },   
+    {
+      "id": "2",
+      "name": "garaje 2"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "1", 
+      "idClient": "2", 
+      "startDate": "2020/12/15 20:00:00", 
+      "endDate": "2020/12/16 16:00:00", 
+      "totalPrice": ""
+    }
+  ],
+  "bookingsDetail": [
+    {
+      "body": "comentario actualizado",
+      "postId": 2,
+      "id": 2
+    }
+  ]
 }

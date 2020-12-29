@@ -3,10 +3,13 @@ const {src, dest, series} = require('gulp');
 const uglify = require('gulp-uglify-es').default;
 const htmlmin = require('gulp-htmlmin');
 const cssmin = require('gulp-cssmin');
+const imagemin = require('gulp-imagemin');
 const autoprefixer = require('gulp-autoprefixer');
 const purgecss = require('gulp-purgecss');
 const useref = require('gulp-useref');
 const replace = require('gulp-replace');
+
+/*---------CONFIGURACIÓN PARA CAMBIAR LAS VARIABLES A DEV O PROD---------
 const {CONFIGURATION} = require('./src/app.config.js');
 const {API_URL, PORT} = CONFIGURATION;
 
@@ -14,7 +17,7 @@ require('dotenv').config();
 
 task('build', function build() {
   const environmentPath =
-    process.env.ENV === 'prod' ? 'configurations/.env.prod' : 'configurations/.env.dev';
+    process.env.ENV_TYPE === 'prod' ? 'configurations/.env.prod' : 'configurations/.env.dev';
 
   require('dotenv').config({path: environmentPath});
 
@@ -23,6 +26,7 @@ task('build', function build() {
     .pipe(replace(PORT, process.env.PORT))
     .pipe(dest('src'));
 });
+-------------------------------------------------------------------------*/
 
 function bundle() {
   return src('src/*.html').pipe(useref()).pipe(dest('bundle'));
@@ -32,8 +36,8 @@ function copyData() {
   return src('src/*.json').pipe(dest('bundle'));
 }
 
-function copyImg() {
-  return src('src/assets/images/*').pipe(dest('bundle/assets/images'));
+function resizeImage() {
+  return src('src/assets/images/*').pipe(imagemin()).pipe(dest('bundle/assets/images'));
 }
 
 function minifyJs() {
@@ -73,7 +77,7 @@ function cleanCss() {
 exports.default = series(
   bundle,
   copyData,
-  copyImg,
+  resizeImage,
   minifyJs,
   minifyHtml,
   minifyCSS,

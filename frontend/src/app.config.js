@@ -6,7 +6,7 @@ const CONFIGURATION = {
 const {API_URL} = CONFIGURATION;
 const {PORT} = CONFIGURATION;
 
-exports.CONFIGURATION = {
+/*exports.CONFIGURATION = {
   API_URL,
   PORT,
-};
+};*/

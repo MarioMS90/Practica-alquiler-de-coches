@@ -18,7 +18,9 @@
     "url": "https://github.com/MarioMS90/Practica-alquiler-de-coches/issues"
   },
   "homepage": "https://github.com/MarioMS90/Practica-alquiler-de-coches#readme",
-  "dependencies": {},
+  "dependencies": {
+    "moment": "^2.29.1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-angular": "^11.0.0",

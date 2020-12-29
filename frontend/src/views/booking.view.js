@@ -1,3 +1,3 @@
-class RentalDetail {
+class BookingView {
   constructor() {}
 }

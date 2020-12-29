@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="54614581-303f-4d00-b33f-7736e4b17844" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/car.rental.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/models/rental.detail.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/models/rental.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/booking.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/booking.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/car.rental.view.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="Mi VPS" />
+  <component name="ProjectId" id="1mHsBxkoYsv7vQg5UQGGCpbZ2C6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54614581-303f-4d00-b33f-7736e4b17844" name="Default Changelist" comment="" />
+      <created>1609161718884</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609161718884</updated>
+      <workItem from="1609161719966" duration="6534000" />
+      <workItem from="1609176509300" duration="2033000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="543" y="177" key="#CLI_Interpreters" timestamp="1609161996692">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="543" y="177" key="#CLI_Interpreters/0.0.1920.1040@0.0.1920.1040" timestamp="1609161996692" />
+    <state x="555" y="180" width="800" height="671" key="#Deployment" timestamp="1609162908140">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="555" y="180" width="800" height="671" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1609162908140" />
+    <state x="376" y="177" width="800" height="671" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609163007849">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="376" y="177" width="800" height="671" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609163007849" />
+    <state width="222" height="457" key="HiddenNamespacesPopup" timestamp="1609162693449">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="222" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1609162693449" />
+    <state x="464" y="154" key="SettingsEditor" timestamp="1609161997912">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="464" y="154" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1609161997912" />
+    <state x="861" y="399" width="188" height="234" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1609162746646">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="861" y="399" width="188" height="234" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1920.1040@0.0.1920.1040" timestamp="1609162746646" />
+    <state x="861" y="399" width="188" height="234" key="com.intellij.database.actions.DdlActions$ModifyObject$1" timestamp="1609162729816">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="861" y="399" width="188" height="234" key="com.intellij.database.actions.DdlActions$ModifyObject$1/0.0.1920.1040@0.0.1920.1040" timestamp="1609162729816" />
+    <state x="743" y="342" width="424" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1609178635857">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="342" width="424" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609178635857" />
+    <state x="840" y="242" width="585" height="560" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1609178643807">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="840" y="242" width="585" height="560" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609178643807" />
+  </component>
+</project>
