@@ -1,41 +1,40 @@
 class Booking {
-  constructor({id, idClient, startDate, endDate, totalPrice, bookingDetails}) {
+  constructor({id, client, startDatetime, totalPrice, bookingDetails}) {
     this.id = id;
-    this.idClient = idClient;
-    this.startDate = startDate;
-    this.endDate = endDate;
+    this.client = client;
+    this.startDatetime = startDatetime;
     this.totalPrice = totalPrice;
     this.bookingDetails = bookingDetails;
   }
 
-  set startDate(startDate) {
-    if (!REGEXP_BOOKING.DATE.test(startDate.format(FORMAT_DATE))) {
+  set startDatetime(startDatetime) {
+    if (!REGEXP_BOOKING.DATE.test(startDatetime.format(FORMAT_DATE))) {
       throw Error('ERROR: La fecha de inicio no es válida.');
     }
-    if (moment().diff(startDate) < 0) {
+    if (moment().diff(startDatetime) < 0) {
       throw Error('ERROR: La fecha de inicio es del futuro.');
     }
 
-    this._startDate = startDate.format(FORMAT_DATE);
+    this._startDatetime = startDatetime.format(FORMAT_DATE);
   }
 
-  get startDate() {
-    return this._startDate;
+  get startDatetime() {
+    return this._startDatetime;
   }
 
-  set endDate(endDate) {
-    if (!REGEXP_BOOKING.DATE.test(endDate.format(FORMAT_DATE))) {
+  set endDatetime(endDatetime) {
+    if (!REGEXP_BOOKING.DATE.test(endDatetime.format(FORMAT_DATE))) {
       throw Error('ERROR: La fecha de fin no es válida.');
     }
-    if (endDate.diff(moment(this.startDate, FORMAT_DATE)) < 0) {
+    if (endDatetime.diff(moment(this.startDatetime, FORMAT_DATE)) < 0) {
       throw Error('ERROR: La fecha de fin es anterior a la fecha de inicio.');
     }
 
-    this._endDate = endDate.format(FORMAT_DATE);
+    this._endDatetime = endDatetime.format(FORMAT_DATE);
   }
 
-  get endDate() {
-    return this._endDate;
+  get endDatetime() {
+    return this._endDatetime;
   }
 
   set totalPrice(totalPrice) {

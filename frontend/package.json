@@ -6,6 +6,7 @@
   "scripts": {
     "start:dev": "ENV_TYPE=dev gulp build",
     "start:prod": "ENV_TYPE=prod gulp build",
+    "json": "json-server --watch  ./src/db.json",
     "test": "karma start"
   },
   "repository": {
@@ -43,7 +44,9 @@
     "karma-chrome-launcher": "^3.1.0",
     "karma-firefox-launcher": "^2.0.0",
     "karma-jasmine": "^4.0.1",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "serve": "^11.3.2",
+    "json-server": "^0.16.3"
   },
   "browserslist": [
     "last 2 versions"

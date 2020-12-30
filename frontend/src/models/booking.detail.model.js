@@ -1,8 +1,8 @@
 class BookingDetail {
-  constructor(id, idBooking, carRegistration, gasoline_liters) {
+  constructor(id, booking, car, gasolineLiters) {
     this.id = id;
-    this.idBooking = idBooking;
-    this.carRegistration = carRegistration;
-    this.gasoline_liters = gasoline_liters;
+    this.booking = booking;
+    this.car = car;
+    this.gasolineLiters = gasolineLiters;
   }
 }

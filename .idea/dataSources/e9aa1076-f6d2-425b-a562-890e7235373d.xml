@@ -904,26 +904,26 @@ ALL PRIVILEGES|pictopeer:null!
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="281" parent="275" name="id_client">
+    <column id="281" parent="275" name="client">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="282" parent="275" name="start_date">
+    <column id="282" parent="275" name="startDatetime">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="283" parent="275" name="end_date">
+    <column id="283" parent="275" name="endDatetime">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="284" parent="275" name="total_price">
+    <column id="284" parent="275" name="totalPrice">
       <Position>5</Position>
       <DataType>decimal(10)|0s</DataType>
     </column>
     <index id="285" parent="275" name="table_name_cliente_id_fk">
-      <ColNames>id_client</ColNames>
+      <ColNames>client</ColNames>
       <Type>btree</Type>
     </index>
     <key id="286" parent="275" name="PRIMARY">
@@ -932,7 +932,7 @@ ALL PRIVILEGES|pictopeer:null!
       <Primary>1</Primary>
     </key>
     <foreign-key id="287" parent="275" name="table_name_cliente_id_fk">
-      <ColNames>id_client</ColNames>
+      <ColNames>client</ColNames>
       <RefTableName>client</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
@@ -944,27 +944,27 @@ ALL PRIVILEGES|pictopeer:null!
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="289" parent="276" name="id_booking">
+    <column id="289" parent="276" name="booking">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="290" parent="276" name="car_registration">
+    <column id="290" parent="276" name="car">
       <Position>3</Position>
-      <DataType>varchar(12)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="291" parent="276" name="gasoline_liters">
+    <column id="291" parent="276" name="gasolineLiters">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <index id="292" parent="276" name="datalle_reserva_reserva_id_fk">
-      <ColNames>id_booking</ColNames>
+      <ColNames>booking</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="293" parent="276" name="booking_detail_car_registration_fk">
-      <ColNames>car_registration</ColNames>
+    <index id="293" parent="276" name="booking_detail_car_id_fk">
+      <ColNames>car</ColNames>
       <Type>btree</Type>
     </index>
     <key id="294" parent="276" name="PRIMARY">
@@ -973,16 +973,16 @@ ALL PRIVILEGES|pictopeer:null!
       <Primary>1</Primary>
     </key>
     <foreign-key id="295" parent="276" name="datalle_reserva_reserva_id_fk">
-      <ColNames>id_booking</ColNames>
+      <ColNames>booking</ColNames>
       <RefTableName>booking</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="296" parent="276" name="booking_detail_car_registration_fk">
-      <ColNames>car_registration</ColNames>
+    <foreign-key id="296" parent="276" name="booking_detail_car_id_fk">
+      <ColNames>car</ColNames>
       <RefTableName>car</RefTableName>
-      <RefColNames>registration</RefColNames>
+      <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
@@ -1012,17 +1012,17 @@ ALL PRIVILEGES|pictopeer:null!
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="302" parent="277" name="id_garage">
+    <column id="302" parent="277" name="garage">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="303" parent="277" name="gasoline_liters">
+    <column id="303" parent="277" name="gasolineLiters">
       <Position>7</Position>
       <DataType>int(3)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="304" parent="277" name="price_hour">
+    <column id="304" parent="277" name="priceHour">
       <Position>8</Position>
       <DataType>decimal(10)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1033,7 +1033,7 @@ ALL PRIVILEGES|pictopeer:null!
       <Type>btree</Type>
     </index>
     <index id="306" parent="277" name="car_garage_id_fk">
-      <ColNames>id_garage</ColNames>
+      <ColNames>garage</ColNames>
       <Type>btree</Type>
     </index>
     <key id="307" parent="277" name="PRIMARY">
@@ -1046,7 +1046,7 @@ ALL PRIVILEGES|pictopeer:null!
       <UnderlyingIndexName>coches_matricula_uindex</UnderlyingIndexName>
     </key>
     <foreign-key id="309" parent="277" name="car_garage_id_fk">
-      <ColNames>id_garage</ColNames>
+      <ColNames>garage</ColNames>
       <RefTableName>garage</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>

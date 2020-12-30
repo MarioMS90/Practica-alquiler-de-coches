@@ -1,4 +1,9 @@
-//tpvController = new TpvController(new TpvView(), new TpvService());
+bookingController = new BookingController(
+  new BookingService(new HttpService()),
+  new CarService(new HttpService()),
+  new ClientService(new HttpService()),
+  new BookingView(),
+);
 
 /*const URL_SERVER = 'http://localhost';
 const PORT_SERVER = 3000;
@@ -26,16 +31,15 @@ fetch(POST_ENDPOINT, options)
   .then(response => response.json())
   .then(posts => console.log(posts));*/
 
-const startDate = moment('21/05/1990 20:15:00', FORMAT_DATE);
-const endDate = moment('26/05/1990 22:16:00', FORMAT_DATE);
+/*const startDatetime = moment('21/05/1990 20:15:00', FORMAT_DATE);
+const endDatetime = moment('26/05/1990 22:16:00', FORMAT_DATE);
 
-console.log(Math.ceil(moment.duration(endDate.diff(startDate)).asHours())); //CALCULAR HORAS ENTRE DOS DATETIMES
+Math.ceil(moment.duration(endDatetime.diff(startDatetime)).asHours()); //CALCULAR HORAS ENTRE DOS DATETIMES
 
 const paramsBooking = {
   id: 2,
   idClient: 3,
-  startDate: startDate,
-  endDate: endDate,
+  startDatetime: startDatetime,
   totalPrice: 23,
   bookingDetails: [],
 };
@@ -48,6 +52,9 @@ const paramsClient = {
 };
 
 const booking = new Booking(paramsBooking);
+booking.endDatetime = endDatetime;
+
 const client = new Client(paramsClient);
 
-console.log(booking);
+clientService = new ClientService(new HttpService());
+clientService.findAll();*/

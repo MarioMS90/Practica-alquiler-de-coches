@@ -1,6 +1,6 @@
 const CONFIGURATION = {
-  API_URL: 'http://vps791322.ovh.net',
-  PORT: 8084,
+  API_URL: 'http://localhost',
+  PORT: 3000,
 };
 
 const {API_URL} = CONFIGURATION;

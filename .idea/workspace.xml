@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54614581-303f-4d00-b33f-7736e4b17844" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/car.rental.controller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/models/rental.detail.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/models/rental.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e9aa1076-f6d2-425b-a562-890e7235373d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e9aa1076-f6d2-425b-a562-890e7235373d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/configurations/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/configurations/.env.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/booking.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/booking.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/models/booking.detail.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/models/booking.detail.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/models/booking.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/models/booking.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/services/booking.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/booking.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/car.rental.view.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/client.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/client.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/http.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/http.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/booking.view.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/booking.view.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +60,10 @@
       <updated>1609161718884</updated>
       <workItem from="1609161719966" duration="6534000" />
       <workItem from="1609176509300" duration="2033000" />
+      <workItem from="1609255655620" duration="203000" />
+      <workItem from="1609256346899" duration="542000" />
+      <workItem from="1609333419640" duration="3000" />
+      <workItem from="1609358233411" duration="1007000" />
     </task>
     <servers />
   </component>
@@ -85,13 +99,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="861" y="399" width="188" height="234" key="com.intellij.database.actions.DdlActions$ModifyObject$1/0.0.1920.1040@0.0.1920.1040" timestamp="1609162729816" />
-    <state x="743" y="342" width="424" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1609178635857">
+    <state x="743" y="342" width="424" height="305" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1609358618718">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="743" y="342" width="424" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609178635857" />
-    <state x="840" y="242" width="585" height="560" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1609178643807">
+    <state x="743" y="342" width="424" height="305" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609358618718" />
+    <state x="840" y="242" width="585" height="560" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1609255855613">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="840" y="242" width="585" height="560" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609178643807" />
+    <state x="840" y="242" width="585" height="560" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609255855613" />
   </component>
 </project>

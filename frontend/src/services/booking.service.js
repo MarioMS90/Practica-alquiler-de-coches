@@ -8,6 +8,6 @@ class BookingService {
   findAll() {
     this.httpService
       .get(this.ENDPOINT_BOOKING)
-      .then(bookings => this.bookings.map(booking => new Booking(booking)));
+      .then(bookings => bookings.map(booking => new Booking(booking)));
   }
 }
