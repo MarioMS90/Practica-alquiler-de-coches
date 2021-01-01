@@ -2,6 +2,7 @@ bookingController = new BookingController(
   new BookingService(new HttpService()),
   new CarService(new HttpService()),
   new ClientService(new HttpService()),
+  new ValidationService(),
   new BookingView(),
 );
 

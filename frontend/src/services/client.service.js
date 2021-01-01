@@ -22,16 +22,19 @@ class ClientService {
   };
 
   update = client => {
+    const _client = new Client(client);
+
     const params = {
-      dni: client.dni,
-      name: client.name,
-      adress: client.adress,
-      phone: client.phone,
-      guarantor: client.guarantor,
+      id: _client.id,
+      dni: _client.dni,
+      name: _client.name,
+      adress: _client.adress,
+      phone: _client.phone,
+      guarantor: _client.guarantor || null,
     };
 
     return this.httpService
-      .put(`${this.CLIENTS_ENDPOINT}/${client.id}`, params)
+      .put(`${this.CLIENTS_ENDPOINT}/${_client.id}`, params)
       .then(client => client)
       .catch(error => this.handleError('update', error));
   };

@@ -41,8 +41,8 @@ class BookingView {
         const row = event.target.closest('tr');
         const client = this.getClientFromRow(row);
 
-        handler(client);
         this._isEdited = false;
+        handler(client);
       }
     });
   }
@@ -57,9 +57,19 @@ class BookingView {
     });
   }
 
-  displayClientError(error) {
-    console.log(this.clientsTable.childNodes);
+  displayClientErrors(id, validations) {
+    const row = this.getClientRow(id);
+
+    validations.forEach((validation, index) => {
+      if (!validation) {
+        row.childNodes[index].classList.add('invalid');
+      } else {
+        row.childNodes[index].classList.remove('invalid');
+      }
+    });
   }
+
+  getClientRow = id => document.getElementById(this.clientIdFormat(id));
 
   displayClients(clients) {
     while (this.clientsTable.firstChild) {
@@ -67,41 +77,75 @@ class BookingView {
     }
 
     clients.forEach(client => {
-      const row = document.createElement('tr');
-      row.dataset.id = client.id;
+      const clientRow = this.createClientRow(client);
 
-      const colDni = document.createElement('td');
-      const colName = document.createElement('td');
-      const colAdress = document.createElement('td');
-      const colPhone = document.createElement('td');
-      const colGuarantor = document.createElement('td');
-      const colRemove = document.createElement('td');
-
-      colDni.contentEditable = true;
-      colName.contentEditable = true;
-      colAdress.contentEditable = true;
-      colPhone.contentEditable = true;
-      colGuarantor.contentEditable = true;
-
-      colDni.textContent = client.dni;
-      colName.textContent = client.name;
-      colAdress.textContent = client.adress;
-      colPhone.textContent = client.phone;
-
-      if (client.guarantor) {
-        colGuarantor.textContent = client.guarantor.name;
-        colGuarantor.dataset.id = client.guarantor.id;
-      } else {
-        colGuarantor.textContent = 'No';
-      }
-
-      colRemove.appendChild(this.createRemoveButton());
-
-      row.append(colDni, colName, colAdress, colPhone, colGuarantor, colRemove);
-
-      clientsTable.appendChild(row);
+      this.clientsTable.appendChild(clientRow);
     });
+
+    const newClientRow = this.createNewClientRow();
+    this.clientsTable.appendChild(newClientRow);
   }
+
+  createClientRow(client) {
+    const row = document.createElement('tr');
+    row.id = this.clientIdFormat(client.id);
+    row.dataset.id = client.id;
+
+    const colDni = document.createElement('td');
+    const colName = document.createElement('td');
+    const colAdress = document.createElement('td');
+    const colPhone = document.createElement('td');
+    const colGuarantor = document.createElement('td');
+    const colRemove = document.createElement('td');
+
+    colDni.contentEditable = true;
+    colName.contentEditable = true;
+    colAdress.contentEditable = true;
+    colPhone.contentEditable = true;
+    colGuarantor.contentEditable = true;
+
+    colDni.textContent = client.dni;
+    colName.textContent = client.name;
+    colAdress.textContent = client.adress;
+    colPhone.textContent = client.phone;
+
+    if (client.guarantor) {
+      colGuarantor.textContent = client.guarantor.name;
+      colGuarantor.dataset.id = client.guarantor.id;
+    } else {
+      colGuarantor.textContent = 'No';
+    }
+
+    colRemove.appendChild(this.createRemoveButton());
+
+    row.append(colDni, colName, colAdress, colPhone, colGuarantor, colRemove);
+    return row;
+  }
+
+  createNewClientRow() {
+    const row = document.createElement('tr');
+    row.id = 'newClient';
+
+    const colDni = document.createElement('td');
+    const colName = document.createElement('td');
+    const colAdress = document.createElement('td');
+    const colPhone = document.createElement('td');
+    const colGuarantor = document.createElement('td');
+    const colRemove = document.createElement('td');
+
+    colDni.contentEditable = true;
+    colName.contentEditable = true;
+    colAdress.contentEditable = true;
+    colPhone.contentEditable = true;
+    colGuarantor.contentEditable = true;
+
+    colRemove.appendChild(this.createRemoveButton());
+
+    row.append(colDni, colName, colAdress, colPhone, colGuarantor, colRemove);
+    return row;
+  }
+
+  clientIdFormat = id => `client-${id}`;
 
   createRemoveButton() {
     const button = document.createElement('a');

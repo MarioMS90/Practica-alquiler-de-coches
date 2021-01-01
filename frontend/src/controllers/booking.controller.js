@@ -1,8 +1,9 @@
 class BookingController {
-  constructor(bookingService, carService, clientService, bookingView) {
+  constructor(bookingService, carService, clientService, validationService, bookingView) {
     this.bookingController = bookingService;
     this.carService = carService;
     this.clientService = clientService;
+    this.validationService = validationService;
     this.bookingView = bookingView;
 
     this.bookingView.bindUpdateClient(this.handleUpdateClient);
@@ -22,12 +23,15 @@ class BookingController {
   };
 
   handleUpdateClient = client => {
-    try {
-      this.clientService.update(new Client(client));
-    } catch (error) {
-      this.bookingView.displayClientError(error);
-    }
+    const validations = [
+      this.validationService.CLIENT_VALIDATION.dni(client.dni),
+      this.validationService.CLIENT_VALIDATION.name(client.name),
+      this.validationService.CLIENT_VALIDATION.adress(client.adress),
+      this.validationService.CLIENT_VALIDATION.phone(client.phone),
+    ];
 
-    this.displayTables();
+    validations.every(validation => validation)
+      ? this.clientService.update(client) && this.displayTables()
+      : this.bookingView.displayClientErrors(client.id, validations);
   };
 }
