@@ -5,8 +5,11 @@ class ClientService {
     this.httpService = httpService;
 
     this.clients = [];
+
     this.handleError = (name, error) => console.error(`ERROR ${name} en ClientService.`, error);
   }
+
+  findById = id => this.clients.find(client => client.id === id);
 
   findAll = () => {
     return this.httpService
@@ -14,27 +17,23 @@ class ClientService {
       .then(
         clients =>
           (this.clients = clients.map(client => {
-            client.guarantor = clients.find(guarantor => client.idGuarantor === guarantor.id);
+            client.guarantor = clients.find(guarantor => client.guarantor === guarantor.id);
             return new Client(client);
           })),
       )
       .catch(error => this.handleError('findAll', error));
   };
 
-  update = client => {
-    const _client = new Client(client);
-
-    const params = {
-      id: _client.id,
-      dni: _client.dni,
-      name: _client.name,
-      adress: _client.adress,
-      phone: _client.phone,
-      guarantor: _client.guarantor || null,
-    };
-
+  insert = client => {
     return this.httpService
-      .put(`${this.CLIENTS_ENDPOINT}/${_client.id}`, params)
+      .post(`${this.CLIENTS_ENDPOINT}`, client)
+      .then(client => client)
+      .catch(error => this.handleError('update', error));
+  };
+
+  update = client => {
+    return this.httpService
+      .put(`${this.CLIENTS_ENDPOINT}/${client.id}`, client)
       .then(client => client)
       .catch(error => this.handleError('update', error));
   };

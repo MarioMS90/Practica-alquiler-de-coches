@@ -1,37 +1,60 @@
 class BookingController {
-  constructor(bookingService, carService, clientService, validationService, bookingView) {
+  constructor(bookingService, carService, clientService, validationService, clientView, carView) {
     this.bookingController = bookingService;
     this.carService = carService;
     this.clientService = clientService;
     this.validationService = validationService;
-    this.bookingView = bookingView;
+    this.clientView = clientView;
+    this.carView = carView;
 
-    this.bookingView.bindUpdateClient(this.handleUpdateClient);
-    this.bookingView.bindDeleteClient(this.handleDeleteClient);
+    this.clientView.bindInsertClient(this.handleInsert);
+    this.clientView.bindUpdateClient(this.handleUpdate);
+    this.clientView.bindDeleteClient(this.handleDelete);
+    this.carView.bindInsertCar(this.handleInsert);
+    this.carView.bindUpdateCar(this.handleUpdate);
+    this.carView.bindDeleteCar(this.handleDelete);
+
+    this.SERVICES = {
+      Client: this.clientService,
+      Car: this.carService,
+    };
+
+    this.VIEWS = {
+      Client: this.clientView,
+      Car: this.carView,
+    };
 
     this.displayTables();
   }
 
   displayTables() {
-    this.clientService.findAll().then(clients => this.bookingView.displayClients(clients));
+    this.clientService.findAll().then(clients => this.clientView.displayClients(clients));
+    this.carService.findAll().then(cars => this.carView.displayCars(cars));
   }
 
-  handleDeleteClient = id => {
-    this.clientService.delete(id);
+  handleInsert = params => {
+    const validations = this.validate(params);
+
+    validations.every(validation => validation)
+      ? this.SERVICES[params.class].insert(params) && this.displayTables()
+      : this.VIEWS[params.class].displayErrors(validations);
+  };
+
+  handleUpdate = params => {
+    const validations = this.validate(params);
+    validations.every(validation => validation)
+      ? this.SERVICES[params.class].update(params) && this.displayTables()
+      : this.VIEWS[params.class].displayErrors(validations, params.id);
+  };
+
+  handleDelete = params => {
+    this.SERVICES[params.class].delete(params.id);
 
     this.displayTables();
   };
 
-  handleUpdateClient = client => {
-    const validations = [
-      this.validationService.CLIENT_VALIDATION.dni(client.dni),
-      this.validationService.CLIENT_VALIDATION.name(client.name),
-      this.validationService.CLIENT_VALIDATION.adress(client.adress),
-      this.validationService.CLIENT_VALIDATION.phone(client.phone),
-    ];
-
-    validations.every(validation => validation)
-      ? this.clientService.update(client) && this.displayTables()
-      : this.bookingView.displayClientErrors(client.id, validations);
-  };
+  validate = params =>
+    Object.entries(this.validationService.VALIDATIONS[params.class]).map(([param, validation]) =>
+      validation(params[param]),
+    );
 }

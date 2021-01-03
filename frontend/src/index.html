@@ -27,11 +27,11 @@
                             aria-controls="bookings" aria-selected="false">Alquileres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="carsTab" data-bs-toggle="tab" href="#cars" role="tab"
+                        <a class="nav-link active" id="carsTab" data-bs-toggle="tab" href="#cars" role="tab"
                             aria-controls="cars" aria-selected="false">Coches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" id="clientsTab" data-bs-toggle="tab" href="#clients" role="tab"
+                        <a class="nav-link" id="clientsTab" data-bs-toggle="tab" href="#clients" role="tab"
                             aria-controls="clients" aria-selected="true">Clientes</a>
                     </li>
                 </ul>
@@ -39,12 +39,24 @@
                     <div class="tab-pane fade" id="bookings" role="tabpanel" aria-labelledby="bookingsTab">
                         Alquileres
                     </div>
-                    <div class="tab-pane fade" id="cars" role="tabpanel" aria-labelledby="carTab">Coches</div>
-                    <div class="tab-pane fade show active" id="clients" role="tabpanel" aria-labelledby="clientsTab">
-                        <button type='button' class='btn btn-success mt-2'>
-                            <div class='d-flex justify-content-center'><img src='assets/images/insert.svg'
-                                    alt='insert'>Nuevo cliente</div>
-                        </button>
+                    <div class="tab-pane fade show active" id="cars" role="tabpanel" aria-labelledby="carTab">
+                        <table class="table table-bordered mt-2">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Matrícula</th>
+                                    <th scope="col">Marca</th>
+                                    <th scope="col">Modelo</th>
+                                    <th scope="col">Color</th>
+                                    <th scope="col">Gasolina l</th>
+                                    <th scope="col">Precio/hora €</th>
+                                    <th scope="col">Garaje</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="carsTable"></tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="clients" role="tabpanel" aria-labelledby="clientsTab">
                         <table class="table table-bordered mt-2">
                             <thead>
                                 <tr>
@@ -78,7 +90,9 @@
     <script src="./services/client.service.js"></script>
     <script src="./services/booking.service.js"></script>
     <script src="./controllers/booking.controller.js"></script>
+    <script src="./views/table.view.js"></script>
     <script src="./views/client.view.js"></script>
+    <script src="./views/car.view.js"></script>
     <script src="./app.js"></script>
     <!-- endbuild -->
 </body>

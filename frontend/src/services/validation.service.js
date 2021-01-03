@@ -6,10 +6,33 @@ class ValidationService {
       adress: this._isValidAdress,
       phone: this._isValidPhone,
     };
+
+    this.CAR_VALIDATION = {
+      registration: this._isValidRegistration,
+      brand: this._isValidBrand,
+      model: this._isValidModel,
+      colour: this._isValidColour,
+      gasolineLiters: this._isValidGasolineLiters,
+      priceHour: this._isValidPriceHour,
+      garage: this._isValidGarage,
+    };
+
+    this.VALIDATIONS = {
+      Client: this.CLIENT_VALIDATION,
+      Car: this.CAR_VALIDATION,
+    };
   }
 
   _isValidDni = dni => REGEXP_CLIENT.DNI.test(dni);
   _isValidName = name => REGEXP_CLIENT.NAME.test(name);
   _isValidAdress = adress => REGEXP_CLIENT.ADRESS.test(adress);
   _isValidPhone = phone => REGEXP_CLIENT.PHONE.test(phone);
+
+  _isValidRegistration = registration => REGEXP_CAR.REGISTRATION.test(registration);
+  _isValidBrand = brand => REGEXP_CAR.BRAND.test(brand);
+  _isValidModel = model => REGEXP_CAR.MODEL.test(model);
+  _isValidColour = colour => REGEXP_CAR.COLOUR.test(colour);
+  _isValidGasolineLiters = gasolineLiters => REGEXP_CAR.GASOLINE_LITERS.test(gasolineLiters);
+  _isValidPriceHour = priceHour => REGEXP_CAR.PRICE_HOUR.test(priceHour);
+  _isValidGarage = garage => (garage && true) || false;
 }

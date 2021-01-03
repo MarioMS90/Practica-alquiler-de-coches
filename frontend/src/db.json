@@ -6,71 +6,50 @@
       "name": "Mario Muñoz",
       "adress": "C/Loma del Colegial Nº9 P1 1ºB 29620 Torremolinos (Málaga)",
       "phone": "952388878",
-      "guarantor": "3"
+      "guarantor": "1"
     },
     {
       "id": "2",
       "dni": "25737817N",
-      "name": "Manuel Perez",
-      "adress": "C/Falsa Nº9 P1 2º",
-      "phone": "625957462",
-      "guarantor": "1"
-    },
-    {
-      "id": "3",
-      "dni": "25737817N",
-      "name": "Diego Pelaez",
+      "name": "Fran Pelaez",
       "adress": "C/Marmota 162ñ",
       "phone": "628795122",
-      "guarantor": null
+      "guarantor": "1"
     },
     {
       "id": "4",
       "dni": "15737817N",
-      "name": "Andrés",
+      "name": "Andrésrrf",
       "adress": "C/Loma del Colegial Nº9 P1 1ºB 29620 Torremolinos (Málaga)",
       "phone": "952388878",
-      "guarantor": null
+      "guarantor": "null"
     },
     {
       "id": "5",
       "dni": "25737817N",
-      "name": "Juan",
-      "adress": "C/Falsa Nº9 P1 2º",
-      "phone": "625957462",
-      "guarantor": null
+      "name": "Juanf",
+      "adress": "C/Falsa Nº9 P1 2ºr",
+      "phone": "625957461",
+      "guarantor": "null",
+      "class": "Client"
     },
     {
       "id": "6",
       "dni": "25737817N",
-      "name": "María",
-      "adress": "C/Marmota 16",
+      "name": "Marímte",
+      "adress": "C/Marmota 16efgd",
       "phone": "628795122",
-      "guarantor": null
+      "guarantor": "4"
     },
     {
       "id": "7",
-      "dni": "15737817N",
-      "name": "Yolanda",
-      "adress": "C/Loma del Colegial Nº9 P1 1ºB 29620 Torremolinos (Málaga)",
-      "phone": "952388878",
-      "guarantor": null
-    },
-    {
-      "id": "8",
+      "class": "Client",
       "dni": "25737817N",
-      "name": "Fran",
-      "adress": "C/Falsa Nº9 P1 2º",
-      "phone": "625957462",
-      "guarantor": "1"
-    },
-    {
-      "id": "9",
-      "dni": "25737817N",
-      "name": "Jose",
-      "adress": "C/Marmota 16",
+      "name": "sasdrs",
+      "adress": "asdst",
       "phone": "628795122",
-      "guarantor": null
+      "guarantor": "1",
+      "undefined": ""
     }
   ],
   "cars": [
@@ -96,13 +75,27 @@
     },
     {
       "id": "3",
+      "class": "Car",
       "registration": "3725HZJ",
-      "brand": "Toyota",
-      "model": "Auris",
-      "colour": "Blanco",
-      "garage": "1",
-      "gasolineLiters": "25",
-      "priceHour": "20.50"
+      "brand": "Toyotaa",
+      "model": "Aurisss",
+      "colour": "Blancos",
+      "gasolineLiters": "252",
+      "priceHour": "243.50",
+      "garage": "2",
+      "undefined": ""
+    },
+    {
+      "id": "dXA2-yT",
+      "registration": "3725HZJ",
+      "brand": "asdsadaeeyeteeesweeEe",
+      "model": "dasdsade",
+      "colour": "asdsad",
+      "gasolineLiters": "12",
+      "priceHour": "233",
+      "garage": "3",
+      "undefined": "",
+      "class": "Car"
     }
   ],
   "garages": [
@@ -113,6 +106,10 @@
     {
       "id": "2",
       "name": "garaje 2"
+    },
+    {
+      "id": "3",
+      "name": "garaje 3"
     }
   ],
   "bookings": [

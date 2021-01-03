@@ -1,75 +1,39 @@
-class BookingView {
+class ClientView extends TableView {
   constructor() {
-    this.REMOVE_ICON = 'assets/images/delete.svg';
+    const clientsTable = document.getElementById('clientsTable');
+    clientsTable.dataset.class = 'Client';
+    super(clientsTable);
+    this.clientsTable = clientsTable;
 
-    this.clientsTable = document.getElementById('clientsTable');
-
-    this._isEdited = false;
-    this._initLocalListeners();
-
-    this.CLIENT_PARAMS = {
-      dni: 0,
-      name: 1,
-      adress: 2,
-      phone: 3,
-      guarantor: 4,
+    this.BUTTONS = {
+      delete: 'assets/images/delete.svg',
+      insert: 'assets/images/insert.svg',
     };
   }
 
-  _initLocalListeners() {
-    this.clientsTable.addEventListener('input', event => {
-      this._isEdited = true;
-    });
-  }
-
-  getClientFromRow(row) {
-    const params = row.childNodes;
-
-    return {
-      id: row.dataset.id,
-      dni: params[this.CLIENT_PARAMS.dni].textContent,
-      name: params[this.CLIENT_PARAMS.name].textContent,
-      adress: params[this.CLIENT_PARAMS.adress].textContent,
-      phone: params[this.CLIENT_PARAMS.phone].textContent,
-      guarantor: params[this.CLIENT_PARAMS.guarantor].dataset.id,
-    };
+  bindInsertClient(handler) {
+    super.bindInsert(handler);
   }
 
   bindUpdateClient(handler) {
-    this.clientsTable.addEventListener('focusout', event => {
-      if (this._isEdited) {
-        const row = event.target.closest('tr');
-        const client = this.getClientFromRow(row);
-
-        this._isEdited = false;
-        handler(client);
-      }
-    });
+    super.bindUpdate(handler);
   }
 
   bindDeleteClient(handler) {
-    this.clientsTable.addEventListener('click', event => {
-      if (event.target.dataset.type === 'delete') {
-        const id = event.target.closest('tr').dataset.id;
-
-        handler(id);
-      }
-    });
+    super.bindDelete(handler);
   }
 
-  displayClientErrors(id, validations) {
-    const row = this.getClientRow(id);
+  displayErrors(validations, id) {
+    const row = id ? this.getRow(id) : this.clientsTable.lastChild;
 
     validations.forEach((validation, index) => {
-      if (!validation) {
-        row.childNodes[index].classList.add('invalid');
-      } else {
-        row.childNodes[index].classList.remove('invalid');
-      }
+      validation
+        ? row.childNodes[index].classList.remove('invalid')
+        : row.childNodes[index].classList.add('invalid');
     });
   }
 
-  getClientRow = id => document.getElementById(this.clientIdFormat(id));
+  getRow = id => Array.from(this.clientsTable.childNodes).find(row => row.dataset.id === id);
 
   displayClients(clients) {
     while (this.clientsTable.firstChild) {
@@ -77,85 +41,95 @@ class BookingView {
     }
 
     clients.forEach(client => {
-      const clientRow = this.createClientRow(client);
-
-      this.clientsTable.appendChild(clientRow);
+      const cells = this.createCells(clients, this.BUTTONS.delete, client);
+      const row = document.createElement('tr');
+      row.dataset.id = client.id;
+      row.append(...cells);
+      this.clientsTable.appendChild(row);
     });
 
-    const newClientRow = this.createNewClientRow();
-    this.clientsTable.appendChild(newClientRow);
+    const cells = this.createCells(clients, this.BUTTONS.insert);
+    const row = document.createElement('tr');
+    row.append(...cells);
+    this.clientsTable.appendChild(row);
   }
 
-  createClientRow(client) {
-    const row = document.createElement('tr');
-    row.id = this.clientIdFormat(client.id);
-    row.dataset.id = client.id;
+  createCells(clients, buttonType, client) {
+    const cellDni = document.createElement('td');
+    const cellName = document.createElement('td');
+    const cellAdress = document.createElement('td');
+    const cellPhone = document.createElement('td');
+    const cellGuarantor = document.createElement('td');
+    const cellButton = document.createElement('td');
+    const select = this.createSelect(clients);
+    const button = this.createButton(buttonType);
+    cellDni.dataset.name = 'dni';
+    cellName.dataset.name = 'name';
+    cellAdress.dataset.name = 'adress';
+    cellPhone.dataset.name = 'phone';
+    cellGuarantor.dataset.name = 'guarantor';
 
-    const colDni = document.createElement('td');
-    const colName = document.createElement('td');
-    const colAdress = document.createElement('td');
-    const colPhone = document.createElement('td');
-    const colGuarantor = document.createElement('td');
-    const colRemove = document.createElement('td');
+    cellGuarantor.appendChild(select);
+    cellButton.appendChild(button);
 
-    colDni.contentEditable = true;
-    colName.contentEditable = true;
-    colAdress.contentEditable = true;
-    colPhone.contentEditable = true;
-    colGuarantor.contentEditable = true;
+    const cells = [cellDni, cellName, cellAdress, cellPhone, cellGuarantor, cellButton];
 
-    colDni.textContent = client.dni;
-    colName.textContent = client.name;
-    colAdress.textContent = client.adress;
-    colPhone.textContent = client.phone;
+    if (client) {
+      cellDni.textContent = client.dni;
+      cellName.textContent = client.name;
+      cellAdress.textContent = client.adress;
+      cellPhone.textContent = client.phone;
 
-    if (client.guarantor) {
-      colGuarantor.textContent = client.guarantor.name;
-      colGuarantor.dataset.id = client.guarantor.id;
+      select.value = client.guarantor ? client.guarantor.id : null;
+      cellGuarantor.dataset.id = select.value;
+
+      for (const cell of cells) {
+        cell.contentEditable = true;
+        cell.classList.add('editable');
+      }
+      cellButton.contentEditable = false;
+      cellButton.classList.remove('editable');
     } else {
-      colGuarantor.textContent = 'No';
+      for (const cell of cells) {
+        cell.contentEditable = true;
+      }
+      cellButton.contentEditable = false;
     }
 
-    colRemove.appendChild(this.createRemoveButton());
-
-    row.append(colDni, colName, colAdress, colPhone, colGuarantor, colRemove);
-    return row;
+    return cells;
   }
 
-  createNewClientRow() {
-    const row = document.createElement('tr');
-    row.id = 'newClient';
+  createSelect(clients) {
+    const select = document.createElement('select');
 
-    const colDni = document.createElement('td');
-    const colName = document.createElement('td');
-    const colAdress = document.createElement('td');
-    const colPhone = document.createElement('td');
-    const colGuarantor = document.createElement('td');
-    const colRemove = document.createElement('td');
+    const option = document.createElement('option');
+    option.value = null;
+    option.textContent = 'No';
+    select.appendChild(option);
 
-    colDni.contentEditable = true;
-    colName.contentEditable = true;
-    colAdress.contentEditable = true;
-    colPhone.contentEditable = true;
-    colGuarantor.contentEditable = true;
+    clients.forEach(client => {
+      const option = document.createElement('option');
+      option.value = client.id;
+      option.textContent = client.name;
 
-    colRemove.appendChild(this.createRemoveButton());
+      select.appendChild(option);
+    });
 
-    row.append(colDni, colName, colAdress, colPhone, colGuarantor, colRemove);
-    return row;
+    return select;
   }
 
-  clientIdFormat = id => `client-${id}`;
-
-  createRemoveButton() {
+  createButton(type) {
     const button = document.createElement('a');
     button.setAttribute('href', '#');
 
     const icon = document.createElement('img');
-    icon.setAttribute('src', this.REMOVE_ICON);
-    icon.dataset.type = 'delete';
-
+    icon.setAttribute('src', type);
     button.appendChild(icon);
+
+    button.firstChild.dataset.type = Object.keys(this.BUTTONS).find(
+      key => this.BUTTONS[key] === type,
+    );
+
     return button;
   }
 }
