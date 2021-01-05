@@ -2,11 +2,12 @@
   "clients": [
     {
       "id": "1",
+      "class": "Client",
       "dni": "15737817N",
       "name": "Mario Muñoz",
       "adress": "C/Loma del Colegial Nº9 P1 1ºB 29620 Torremolinos (Málaga)",
       "phone": "952388878",
-      "guarantor": "1"
+      "guarantor": "7"
     },
     {
       "id": "2",
@@ -18,38 +19,21 @@
     },
     {
       "id": "4",
+      "class": "Client",
       "dni": "15737817N",
-      "name": "Andrésrrf",
+      "name": "Andrésrrfw",
       "adress": "C/Loma del Colegial Nº9 P1 1ºB 29620 Torremolinos (Málaga)",
       "phone": "952388878",
       "guarantor": "null"
     },
     {
       "id": "5",
-      "dni": "25737817N",
-      "name": "Juanf",
-      "adress": "C/Falsa Nº9 P1 2ºr",
-      "phone": "625957461",
-      "guarantor": "null",
-      "class": "Client"
-    },
-    {
-      "id": "6",
-      "dni": "25737817N",
-      "name": "Marímte",
-      "adress": "C/Marmota 16efgd",
-      "phone": "628795122",
-      "guarantor": "4"
-    },
-    {
-      "id": "7",
       "class": "Client",
       "dni": "25737817N",
-      "name": "sasdrs",
-      "adress": "asdst",
-      "phone": "628795122",
-      "guarantor": "1",
-      "undefined": ""
+      "name": "wJuanfrww",
+      "adress": "C/Falsa Nº9 P1 2ºrwW",
+      "phone": "625957461",
+      "guarantor": null
     }
   ],
   "cars": [
@@ -77,25 +61,12 @@
       "id": "3",
       "class": "Car",
       "registration": "3725HZJ",
-      "brand": "Toyotaa",
-      "model": "Aurisss",
-      "colour": "Blancos",
+      "brand": "Toyota",
+      "model": "Auriss",
+      "colour": "Blanco",
       "gasolineLiters": "252",
       "priceHour": "243.50",
-      "garage": "2",
-      "undefined": ""
-    },
-    {
-      "id": "dXA2-yT",
-      "registration": "3725HZJ",
-      "brand": "asdsadaeeyeteeesweeEe",
-      "model": "dasdsade",
-      "colour": "asdsad",
-      "gasolineLiters": "12",
-      "priceHour": "233",
-      "garage": "3",
-      "undefined": "",
-      "class": "Car"
+      "garage": "3"
     }
   ],
   "garages": [

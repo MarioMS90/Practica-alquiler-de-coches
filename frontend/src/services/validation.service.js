@@ -1,13 +1,13 @@
 class ValidationService {
   constructor() {
-    this.CLIENT_VALIDATION = {
+    this.CLIENT = {
       dni: this._isValidDni,
       name: this._isValidName,
       adress: this._isValidAdress,
       phone: this._isValidPhone,
     };
 
-    this.CAR_VALIDATION = {
+    this.CAR = {
       registration: this._isValidRegistration,
       brand: this._isValidBrand,
       model: this._isValidModel,
@@ -18,8 +18,8 @@ class ValidationService {
     };
 
     this.VALIDATIONS = {
-      Client: this.CLIENT_VALIDATION,
-      Car: this.CAR_VALIDATION,
+      Client: this.CLIENT,
+      Car: this.CAR,
     };
   }
 
@@ -34,5 +34,5 @@ class ValidationService {
   _isValidColour = colour => REGEXP_CAR.COLOUR.test(colour);
   _isValidGasolineLiters = gasolineLiters => REGEXP_CAR.GASOLINE_LITERS.test(gasolineLiters);
   _isValidPriceHour = priceHour => REGEXP_CAR.PRICE_HOUR.test(priceHour);
-  _isValidGarage = garage => (garage && true) || false;
+  _isValidGarage = garage => garage != 'null';
 }
