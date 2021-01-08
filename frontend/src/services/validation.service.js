@@ -17,6 +17,11 @@ class ValidationService {
       garage: this._isValidGarage,
     };
 
+    this.BOOKING = {
+      startDatetime: this._isValidStartDatetime,
+      endDatetime: this._isValidEndDatetime,
+    };
+
     this.VALIDATIONS = {
       Client: this.CLIENT,
       Car: this.CAR,
@@ -35,4 +40,16 @@ class ValidationService {
   _isValidGasolineLiters = gasolineLiters => REGEXP_CAR.GASOLINE_LITERS.test(gasolineLiters);
   _isValidPriceHour = priceHour => REGEXP_CAR.PRICE_HOUR.test(priceHour);
   _isValidGarage = garage => garage != 'null';
+
+  _isValidStartDatetime = startDatetime => {
+    this.startDatetime = startDatetime;
+    return REGEXP_BOOKING.DATE.test(
+      startDatetime.format(FORMAT_DATE) && moment().diff(startDatetime) < 0,
+    );
+  };
+  _isValidEndDatetime = endDatetime =>
+    REGEXP_BOOKING.DATE.test(
+      endDatetime.format(FORMAT_DATE) &&
+        endDatetime.diff(moment(this.startDatetime, FORMAT_DATE)) < 0,
+    );
 }

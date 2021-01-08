@@ -1,7 +1,7 @@
 class CarView {
   constructor() {
     this.tableView = new TableView({
-      tableName: 'carsTable',
+      tableId: 'carsTable',
       className: 'Car',
       header: [
         'ID',
@@ -14,14 +14,14 @@ class CarView {
         'Garaje',
       ],
       dataTypes: {
-        id: TableView.DATATYPES.TEXT,
-        registration: TableView.DATATYPES.TEXT,
-        brand: TableView.DATATYPES.TEXT,
-        model: TableView.DATATYPES.TEXT,
-        colour: TableView.DATATYPES.TEXT,
-        gasolineLiters: TableView.DATATYPES.TEXT,
-        priceHour: TableView.DATATYPES.TEXT,
-        garage: TableView.DATATYPES.SELECT,
+        id: TableView.datatypes.TEXT_DISABLED,
+        registration: TableView.datatypes.TEXT,
+        brand: TableView.datatypes.TEXT,
+        model: TableView.datatypes.TEXT,
+        colour: TableView.datatypes.TEXT,
+        gasolineLiters: TableView.datatypes.TEXT,
+        priceHour: TableView.datatypes.TEXT,
+        garage: TableView.datatypes.SELECT,
       },
     });
   }

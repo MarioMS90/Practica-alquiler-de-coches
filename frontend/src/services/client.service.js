@@ -28,7 +28,7 @@ class ClientService {
     return this.httpService
       .post(`${this.CLIENTS_ENDPOINT}`, client)
       .then(client => client)
-      .catch(error => this.handleError('update', error));
+      .catch(error => this.handleError('insert', error));
   };
 
   update = client => {

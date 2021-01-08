@@ -1,6 +1,6 @@
 class CarService {
   CARS_ENDPOINT = `${API_URL}:${PORT}/cars`;
-  GARAGES_ENDPOINT = `${API_URL}:${PORT}/GARAGES`;
+  GARAGES_ENDPOINT = `${API_URL}:${PORT}/garages`;
 
   constructor(httpService) {
     this.httpService = httpService;
@@ -32,13 +32,13 @@ class CarService {
     this.httpService
       .get(this.GARAGES_ENDPOINT)
       .then(garages => (this.garages = garages.map(garage => new Garage(garage))))
-      .catch(error => this.handleError('findAll', error));
+      .catch(error => this.handleError('findGarages', error));
 
   insert = car => {
     return this.httpService
       .post(`${this.CARS_ENDPOINT}`, car)
       .then(car => car)
-      .catch(error => this.handleError('update', error));
+      .catch(error => this.handleError('insert', error));
   };
 
   update = car => {

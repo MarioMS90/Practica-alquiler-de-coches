@@ -1,16 +1,16 @@
 class ClientView {
   constructor() {
     this.tableView = new TableView({
-      tableName: 'clientsTable',
+      tableId: 'clientsTable',
       className: 'Client',
       header: ['ID', 'DNI', 'Nombre', 'Dirección', 'Teléfono', 'Avalador'],
       dataTypes: {
-        id: TableView.DATATYPES.TEXT,
-        dni: TableView.DATATYPES.TEXT,
-        name: TableView.DATATYPES.TEXT,
-        adress: TableView.DATATYPES.TEXT,
-        phone: TableView.DATATYPES.TEXT,
-        guarantor: TableView.DATATYPES.SELECT,
+        id: TableView.datatypes.TEXT_DISABLED,
+        dni: TableView.datatypes.TEXT,
+        name: TableView.datatypes.TEXT,
+        adress: TableView.datatypes.TEXT,
+        phone: TableView.datatypes.TEXT,
+        guarantor: TableView.datatypes.SELECT,
       },
     });
   }

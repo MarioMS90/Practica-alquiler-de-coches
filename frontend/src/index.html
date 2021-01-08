@@ -23,11 +23,11 @@
             <div class="col-12">
                 <ul class="nav nav-tabs" id="tab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link" id="bookingsTab" data-bs-toggle="tab" href="#bookings" role="tab"
+                        <a class="nav-link active" id="bookingsTab" data-bs-toggle="tab" href="#bookings" role="tab"
                             aria-controls="bookings" aria-selected="false">Alquileres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" id="carsTab" data-bs-toggle="tab" href="#cars" role="tab"
+                        <a class="nav-link" id="carsTab" data-bs-toggle="tab" href="#cars" role="tab"
                             aria-controls="cars" aria-selected="false">Coches</a>
                     </li>
                     <li class="nav-item">
@@ -36,10 +36,13 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade" id="bookings" role="tabpanel" aria-labelledby="bookingsTab">
-                        Alquileres
+                    <div class="tab-pane fade show active" id="bookings" role="tabpanel" aria-labelledby="bookingsTab">
+                        <table id="bookingsTable" class="table table-bordered mt-2">
+                            <thead></thead>
+                            <tbody></tbody>
+                        </table>
                     </div>
-                    <div class="tab-pane fade show active" id="cars" role="tabpanel" aria-labelledby="carTab">
+                    <div class="tab-pane fade" id="cars" role="tabpanel" aria-labelledby="carTab">
                         <table id="carsTable" class="table table-bordered mt-2">
                             <thead></thead>
                             <tbody></tbody>
@@ -70,7 +73,8 @@
     <script src="./services/client.service.js"></script>
     <script src="./services/booking.service.js"></script>
     <script src="./controllers/booking.controller.js"></script>
-    <script src="./views/table.view.js"></script>
+    <script src="./views/table.component.js"></script>
+    <script src="./views/booking.view.js"></script>
     <script src="./views/client.view.js"></script>
     <script src="./views/car.view.js"></script>
     <script src="./app.js"></script>

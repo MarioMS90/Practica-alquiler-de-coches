@@ -1,9 +1,18 @@
 class BookingController {
-  constructor(bookingService, carService, clientService, validationService, clientView, carView) {
-    this.bookingController = bookingService;
+  constructor(
+    bookingService,
+    carService,
+    clientService,
+    validationService,
+    bookingView,
+    clientView,
+    carView,
+  ) {
+    this.bookingService = bookingService;
     this.carService = carService;
     this.clientService = clientService;
     this.validationService = validationService;
+    this.bookingView = bookingView;
     this.clientView = clientView;
     this.carView = carView;
 
@@ -13,45 +22,62 @@ class BookingController {
     this.carView.tableView.bindInsert(this.handleInsert);
     this.carView.tableView.bindUpdate(this.handleUpdate);
     this.carView.tableView.bindDelete(this.handleDelete);
+    /*this.bookingView.tableView.bindInsert(this.handleInsert);
+    this.bookingView.tableView.bindUpdate(this.handleUpdate);*/
+    this.bookingView.tableView.bindDelete(this.handleDelete);
 
     this.SERVICES = {
       Client: this.clientService,
       Car: this.carService,
+      Booking: this.bookingService,
     };
 
     this.VIEWS = {
       Client: this.clientView,
       Car: this.carView,
+      Booking: this.bookingView,
     };
 
-    this.displayTables();
+    this.displayData();
   }
 
-  displayTables() {
-    this.clientService.findAll().then(clients => this.clientView.displayClients(clients));
-    this.carService.findAll().then(cars => this.carView.displayCars(cars));
+  displayData() {
+    this.clientService
+      .findAll()
+      .then(clients => (this.bookingService.clients = clients))
+      .then(_ => this.carService.findAll().then(cars => cars))
+      .then(({cars, garages}) => {
+        this.bookingService.cars = cars;
+        this.bookingService.garages = garages;
+      })
+      .then(_ => this.bookingService.findAll().then(data => data))
+      .then(data => {
+        this.clientView.displayClients(data.clients);
+        this.carView.displayCars({cars: data.cars, garages: data.garages});
+        this.bookingView.displayBookings({bookings: data.bookings, clients: data.clients});
+      });
   }
 
   handleInsert = params => {
     const validations = this.validate(params);
 
     validations.every(validation => validation)
-      ? this.SERVICES[params.class].insert(params) && this.displayTables()
+      ? this.SERVICES[params.class].insert(params) && this.displayData()
       : this.VIEWS[params.class].tableView.displayErrors(validations);
   };
 
   handleUpdate = params => {
     const validations = this.validate(params);
-    console.log(validations);
+
     validations.every(validation => validation)
-      ? this.SERVICES[params.class].update(params) && this.displayTables()
+      ? this.SERVICES[params.class].update(params) && this.displayData()
       : this.VIEWS[params.class].tableView.displayErrors(validations, params.id);
   };
 
   handleDelete = params => {
     this.SERVICES[params.class].delete(params.id);
 
-    this.displayTables();
+    this.displayData();
   };
 
   validate = params =>
