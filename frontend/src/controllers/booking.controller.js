@@ -22,8 +22,8 @@ class BookingController {
     this.carView.tableView.bindInsert(this.handleInsert);
     this.carView.tableView.bindUpdate(this.handleUpdate);
     this.carView.tableView.bindDelete(this.handleDelete);
-    /*this.bookingView.tableView.bindInsert(this.handleInsert);
-    this.bookingView.tableView.bindUpdate(this.handleUpdate);*/
+    this.bookingView.tableView.bindInsert(this.handleInsert);
+    /*this.bookingView.tableView.bindUpdate(this.handleUpdate);*/
     this.bookingView.tableView.bindDelete(this.handleDelete);
 
     this.SERVICES = {

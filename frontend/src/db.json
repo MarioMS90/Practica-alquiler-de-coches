@@ -52,7 +52,7 @@
       "id": "2",
       "class": "Car",
       "registration": "2725HZJ",
-      "brand": "BMWw",
+      "brand": "BMW",
       "model": "asd",
       "colour": "Verde",
       "gasolineLiters": "40",
@@ -106,13 +106,6 @@
       "startDatetime": "2020/11/15 18:00:00",
       "endDatetime": "2020/11/15 22:00:00",
       "totalPrice": "200"
-    },
-    {
-      "id": "4",
-      "client": "2",
-      "startDatetime": "2020/12/16 19:00:00",
-      "endDatetime": "2020/12/17 23:00:00",
-      "totalPrice": "205"
     }
   ],
   "bookingDetails": [

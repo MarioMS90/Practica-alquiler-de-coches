@@ -18,13 +18,14 @@ class ValidationService {
     };
 
     this.BOOKING = {
-      startDatetime: this._isValidStartDatetime,
-      endDatetime: this._isValidEndDatetime,
+      /*startDatetime: this._isValidStartDatetime,
+      endDatetime: this._isValidEndDatetime,*/
     };
 
     this.VALIDATIONS = {
       Client: this.CLIENT,
       Car: this.CAR,
+      Booking: this.BOOKING,
     };
   }
 

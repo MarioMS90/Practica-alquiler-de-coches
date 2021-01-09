@@ -52,6 +52,15 @@ class BookingService {
       .catch(error => this.handleError('findBookingDetails', error));
 
   insert = booking => {
+    //FORMATEAR FECHA Y CALCULAR NUMERO DE HORAS - SIN TERMINAR
+    const startDatetime = moment(`${booking.startDate} ${booking.startTime}`, FORMAT_DATE);
+    const endDatetime = moment(`${booking.endDate} ${booking.endTime}`, FORMAT_DATE);
+
+    const hours = Math.ceil(moment.duration(endDatetime.diff(startDatetime)).asHours());
+
+    booking.startDatetime = startDatetime.format(FORMAT_DATE);
+    booking.endDatetime = endDatetime.format(FORMAT_DATE);
+
     return this.httpService
       .post(`${this.BOOKINGS_ENDPOINT}`, booking)
       .then(booking => booking)

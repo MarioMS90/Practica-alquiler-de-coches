@@ -23,4 +23,4 @@ const REGEXP_GARAGE = {
   NAME: /^[a-zA-Zñáéíóú\s]{2,30}$/i,
 };
 
-const FORMAT_DATE = 'DD/MM/YYYY HH:mm:ss';
+const FORMAT_DATE = 'YYYY/MM/DD HH:mm:ss';

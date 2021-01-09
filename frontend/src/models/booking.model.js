@@ -9,12 +9,12 @@ class Booking {
   }
 
   set startDatetime(startDatetime) {
-    this.startDate = moment(startDatetime).format('YYYY-MM-DD');
-    this.startTime = moment(startDatetime).format('HH:MM');
+    this.startDate = moment(startDatetime, FORMAT_DATE).format('YYYY-MM-DD');
+    this.startTime = moment(startDatetime, FORMAT_DATE).format('HH:mm:SS');
   }
 
   set endDatetime(endDatetime) {
-    this.endDate = moment(endDatetime).format('YYYY-MM-DD');
-    this.endTime = moment(endDatetime).format('HH:MM');
+    this.endDate = moment(endDatetime, FORMAT_DATE).format('YYYY-MM-DD');
+    this.endTime = moment(endDatetime, FORMAT_DATE).format('HH:mm:SS');
   }
 }
