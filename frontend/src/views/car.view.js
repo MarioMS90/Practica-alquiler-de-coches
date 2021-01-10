@@ -1,6 +1,6 @@
 class CarView {
   constructor() {
-    this.tableView = new TableView({
+    this.table = new TableComponent({
       tableId: 'carsTable',
       className: 'Car',
       header: [
@@ -14,14 +14,14 @@ class CarView {
         'Garaje',
       ],
       dataTypes: {
-        id: TableView.datatypes.TEXT_DISABLED,
-        registration: TableView.datatypes.TEXT,
-        brand: TableView.datatypes.TEXT,
-        model: TableView.datatypes.TEXT,
-        colour: TableView.datatypes.TEXT,
-        gasolineLiters: TableView.datatypes.TEXT,
-        priceHour: TableView.datatypes.TEXT,
-        garage: TableView.datatypes.SELECT,
+        id: TableComponent.datatypes.TEXT_DISABLED,
+        registration: TableComponent.datatypes.TEXT,
+        brand: TableComponent.datatypes.TEXT,
+        model: TableComponent.datatypes.TEXT,
+        colour: TableComponent.datatypes.TEXT,
+        gasolineLiters: TableComponent.datatypes.TEXT,
+        priceHour: TableComponent.datatypes.TEXT,
+        garage: TableComponent.datatypes.SELECT,
       },
     });
   }
@@ -34,6 +34,6 @@ class CarView {
       },
     };
 
-    this.tableView.displayData(data);
+    this.table.displayData(data);
   }
 }

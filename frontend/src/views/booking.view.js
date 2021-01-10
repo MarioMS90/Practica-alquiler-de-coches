@@ -1,6 +1,6 @@
 class BookingView {
   constructor() {
-    this.tableView = new TableView({
+    this.table = new TableComponent({
       tableId: 'bookingsTable',
       className: 'Booking',
       header: [
@@ -13,13 +13,13 @@ class BookingView {
         'Precio total €',
       ],
       dataTypes: {
-        id: TableView.datatypes.TEXT_DISABLED,
-        client: TableView.datatypes.SELECT,
-        startDate: TableView.datatypes.DATE,
-        startTime: TableView.datatypes.TIME,
-        endDate: TableView.datatypes.DATE,
-        endTime: TableView.datatypes.TIME,
-        totalPrice: TableView.datatypes.TEXT_DISABLED,
+        id: TableComponent.datatypes.TEXT_DISABLED,
+        client: TableComponent.datatypes.SELECT,
+        startDate: TableComponent.datatypes.DATE,
+        startTime: TableComponent.datatypes.TIME,
+        endDate: TableComponent.datatypes.DATE,
+        endTime: TableComponent.datatypes.TIME,
+        totalPrice: TableComponent.datatypes.TEXT_DISABLED,
       },
     });
   }
@@ -32,6 +32,6 @@ class BookingView {
       },
     };
 
-    this.tableView.displayData(data);
+    this.table.displayData(data);
   }
 }

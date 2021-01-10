@@ -1,16 +1,16 @@
 class ClientView {
   constructor() {
-    this.tableView = new TableView({
+    this.table = new TableComponent({
       tableId: 'clientsTable',
       className: 'Client',
       header: ['ID', 'DNI', 'Nombre', 'Dirección', 'Teléfono', 'Avalador'],
       dataTypes: {
-        id: TableView.datatypes.TEXT_DISABLED,
-        dni: TableView.datatypes.TEXT,
-        name: TableView.datatypes.TEXT,
-        adress: TableView.datatypes.TEXT,
-        phone: TableView.datatypes.TEXT,
-        guarantor: TableView.datatypes.SELECT,
+        id: TableComponent.datatypes.TEXT_DISABLED,
+        dni: TableComponent.datatypes.TEXT,
+        name: TableComponent.datatypes.TEXT,
+        adress: TableComponent.datatypes.TEXT,
+        phone: TableComponent.datatypes.TEXT,
+        guarantor: TableComponent.datatypes.SELECT,
       },
     });
   }
@@ -23,6 +23,6 @@ class ClientView {
       },
     };
 
-    this.tableView.displayData(data);
+    this.table.displayData(data);
   }
 }

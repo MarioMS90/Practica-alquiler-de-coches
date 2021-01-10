@@ -16,15 +16,15 @@ class BookingController {
     this.clientView = clientView;
     this.carView = carView;
 
-    this.clientView.tableView.bindInsert(this.handleInsert);
-    this.clientView.tableView.bindUpdate(this.handleUpdate);
-    this.clientView.tableView.bindDelete(this.handleDelete);
-    this.carView.tableView.bindInsert(this.handleInsert);
-    this.carView.tableView.bindUpdate(this.handleUpdate);
-    this.carView.tableView.bindDelete(this.handleDelete);
-    this.bookingView.tableView.bindInsert(this.handleInsert);
-    /*this.bookingView.tableView.bindUpdate(this.handleUpdate);*/
-    this.bookingView.tableView.bindDelete(this.handleDelete);
+    this.clientView.table.bindInsert(this.handleInsert);
+    this.clientView.table.bindUpdate(this.handleUpdate);
+    this.clientView.table.bindDelete(this.handleDelete);
+    this.carView.table.bindInsert(this.handleInsert);
+    this.carView.table.bindUpdate(this.handleUpdate);
+    this.carView.table.bindDelete(this.handleDelete);
+    /*this.bookingView.table.bindInsert(this.handleInsert);
+    this.bookingView.tableView.bindUpdate(this.handleUpdate);*/
+    this.bookingView.table.bindDelete(this.handleDelete);
 
     this.SERVICES = {
       Client: this.clientService,
@@ -63,7 +63,7 @@ class BookingController {
 
     validations.every(validation => validation)
       ? this.SERVICES[params.class].insert(params) && this.displayData()
-      : this.VIEWS[params.class].tableView.displayErrors(validations);
+      : this.VIEWS[params.class].table.displayErrors(validations);
   };
 
   handleUpdate = params => {
@@ -71,7 +71,7 @@ class BookingController {
 
     validations.every(validation => validation)
       ? this.SERVICES[params.class].update(params) && this.displayData()
-      : this.VIEWS[params.class].tableView.displayErrors(validations, params.id);
+      : this.VIEWS[params.class].table.displayErrors(validations, params.id);
   };
 
   handleDelete = params => {

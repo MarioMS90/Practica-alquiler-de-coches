@@ -1,4 +1,4 @@
-class TableView {
+class TableComponent {
   constructor({tableId, className, header, dataTypes}) {
     this.table = document.getElementById(tableId);
     this.bodyTable = this.table.tBodies[0];
@@ -138,7 +138,7 @@ class TableView {
           ),
         );
         cells[i].classList.add('updatable');
-        if (this.dataTypes[fieldName] === TableView.datatypes.TEXT) {
+        if (this.dataTypes[fieldName] === TableComponent.datatypes.TEXT) {
           cells[i].contentEditable = true;
         }
       }
@@ -162,7 +162,7 @@ class TableView {
       cells[i].append(
         this.DATATYPES_FUNCTIONS[this.dataTypes[fieldName]]('', selectElements[fieldName]),
       );
-      if (this.dataTypes[fieldName] === TableView.datatypes.TEXT) {
+      if (this.dataTypes[fieldName] === TableComponent.datatypes.TEXT) {
         cells[i].contentEditable = true;
       }
     }
