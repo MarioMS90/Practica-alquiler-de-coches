@@ -54,7 +54,7 @@ class TableComponent {
     });
 
     this.bodyTable.addEventListener('change', event => {
-      if (event.target.classList.contains('input')) {
+      if (event.target.classList.contains('updatable')) {
         this._isEdited = true;
       }
     });
@@ -222,7 +222,7 @@ class TableComponent {
     inputDate.setAttribute('type', 'date');
     inputDate.value = date;
     if (date) {
-      inputDate.classList.add('input');
+      inputDate.classList.add('updatable');
     }
 
     return inputDate;
@@ -233,7 +233,7 @@ class TableComponent {
     inputTime.setAttribute('type', 'time');
     inputTime.value = time;
     if (time) {
-      inputTime.classList.add('input');
+      inputTime.classList.add('updatable');
     }
 
     return inputTime;
