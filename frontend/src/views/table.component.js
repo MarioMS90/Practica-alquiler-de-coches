@@ -10,8 +10,9 @@ class TableComponent {
     this._initLocalListeners();
 
     this.buttons = {
-      DELETE: 'assets/images/delete.svg',
-      INSERT: 'assets/images/insert.svg',
+      RUTE: './assets/images',
+      DELETE: 'delete',
+      INSERT: 'insert',
     };
 
     this.DATATYPES_FUNCTIONS = {
@@ -62,7 +63,7 @@ class TableComponent {
 
   bindInsert(handler) {
     this.bodyTable.addEventListener('click', event => {
-      if (event.target.dataset.type === 'INSERT') {
+      if (event.target.dataset.type === this.buttons.INSERT) {
         const row = event.target.closest('tr');
         const params = this.getParamsFromRow(row);
 
@@ -85,7 +86,7 @@ class TableComponent {
 
   bindDelete(handler) {
     this.bodyTable.addEventListener('click', event => {
-      if (event.target.dataset.type === 'DELETE') {
+      if (event.target.dataset.type === this.buttons.DELETE) {
         const row = event.target.closest('tr');
         const params = this.getParamsFromRow(row);
 
@@ -120,68 +121,56 @@ class TableComponent {
   getRow = id => Array.from(this.bodyTable.childNodes).find(row => row.dataset.id === id);
 
   displayData({elements, selectElements}) {
+    //Borrar todo
     while (this.bodyTable.firstChild) {
       this.bodyTable.removeChild(this.bodyTable.firstChild);
     }
 
+    //Crear fila para cada elemento
     elements.forEach(element => {
-      const cells = this.createCells();
-
-      //Crear fila para cada elemento
-      for (let i = 0; i < cells.length - 1; i++) {
-        const fieldName = cells[i].dataset.name;
-
-        cells[i].append(
-          this.DATATYPES_FUNCTIONS[this.dataTypes[fieldName]](
-            element[fieldName],
-            selectElements[fieldName],
-          ),
-        );
-        cells[i].classList.add('updatable');
-        if (this.dataTypes[fieldName] === TableComponent.datatypes.TEXT) {
-          cells[i].contentEditable = true;
-        }
-      }
-
-      const button = this.createButton(this.buttons.DELETE);
-      cells[cells.length - 1].appendChild(button);
-
+      const cells = this.createCells(selectElements, element);
+      cells.forEach(cell => {
+        cell.classList.add('updatable');
+      });
       const row = document.createElement('tr');
       row.append(...cells);
+
+      const button = this.createButton(this.buttons.DELETE);
+      row.lastChild.appendChild(button);
 
       row.dataset.id = element.id;
       this.bodyTable.appendChild(row);
     });
 
     //Crear fila de inserción
-    const cells = this.createCells();
-
-    for (let i = 0; i < cells.length - 1; i++) {
-      const fieldName = cells[i].dataset.name;
-
-      cells[i].append(
-        this.DATATYPES_FUNCTIONS[this.dataTypes[fieldName]]('', selectElements[fieldName]),
-      );
-      if (this.dataTypes[fieldName] === TableComponent.datatypes.TEXT) {
-        cells[i].contentEditable = true;
-      }
-    }
-
-    const button = this.createButton(this.buttons.INSERT);
-    cells[cells.length - 1].appendChild(button);
-
+    const cells = this.createCells(selectElements);
     const row = document.createElement('tr');
     row.append(...cells);
+
+    const button = this.createButton(this.buttons.INSERT);
+    row.lastChild.appendChild(button);
 
     this.bodyTable.appendChild(row);
   }
 
-  createCells() {
+  createCells(selectElements, element) {
     const cells = Object.values(this.dataTypes).map((_, index) => {
       const cell = document.createElement('td');
       cell.dataset.name = Object.keys(this.dataTypes)[index];
 
       return cell;
+    });
+
+    cells.forEach(cell => {
+      const fieldName = cell.dataset.name;
+      const param = element ? element[fieldName] : '';
+
+      cell.append(
+        this.DATATYPES_FUNCTIONS[this.dataTypes[fieldName]](param, selectElements[fieldName]),
+      );
+      if (this.dataTypes[fieldName] === TableComponent.datatypes.TEXT) {
+        cell.contentEditable = true;
+      }
     });
     const cellAction = document.createElement('td');
 
@@ -209,6 +198,7 @@ class TableComponent {
 
       select.appendChild(option);
     });
+
     if (value) {
       select.value = value.id;
       select.classList.add('updatable');
@@ -219,22 +209,24 @@ class TableComponent {
 
   createInputDate(date) {
     const inputDate = document.createElement('input');
-    inputDate.setAttribute('type', 'date');
-    inputDate.value = date;
     if (date) {
       inputDate.classList.add('updatable');
     }
+
+    inputDate.setAttribute('type', 'date');
+    inputDate.value = date;
 
     return inputDate;
   }
 
   createInputTime(time) {
     const inputTime = document.createElement('input');
-    inputTime.setAttribute('type', 'time');
-    inputTime.value = time;
     if (time) {
       inputTime.classList.add('updatable');
     }
+
+    inputTime.setAttribute('type', 'time');
+    inputTime.value = time;
 
     return inputTime;
   }
@@ -244,10 +236,10 @@ class TableComponent {
     button.setAttribute('href', '#');
 
     const icon = document.createElement('img');
-    icon.setAttribute('src', type);
+    icon.setAttribute('src', `${this.buttons.RUTE}/${type}.svg`);
     button.appendChild(icon);
 
-    icon.dataset.type = Object.keys(this.buttons).find(key => type === this.buttons[key]);
+    icon.dataset.type = type;
 
     return button;
   }

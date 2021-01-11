@@ -9,7 +9,7 @@ class CarView {
         'Marca',
         'Modelo',
         'Color',
-        'Gasolina l',
+        'Gasolina L',
         'Precio/hora €',
         'Garaje',
       ],
