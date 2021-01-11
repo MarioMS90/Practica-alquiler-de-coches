@@ -24,6 +24,12 @@ class BookingView {
     });
   }
 
+  bindInsert = handler => this.table.bindInsert(handler);
+
+  bindUpdate = handler => this.table.bindUpdate(handler);
+
+  bindDelete = handler => this.table.bindDelete(handler);
+
   displayBookings({bookings, clients}) {
     const data = {
       elements: bookings,
@@ -34,4 +40,6 @@ class BookingView {
 
     this.table.displayData(data);
   }
+
+  displayErrors = (validations, id) => this.table.displayErrors(validations, id);
 }

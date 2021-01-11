@@ -63,12 +63,12 @@
       "id": "GUrbAZL",
       "class": "Car",
       "registration": "2725HZJ",
-      "brand": "asds",
+      "brand": "asdsf",
       "model": "asd",
       "colour": "asd",
       "gasolineLiters": "123",
       "priceHour": "12",
-      "garage": "2"
+      "garage": "1"
     }
   ],
   "garages": [

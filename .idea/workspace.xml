@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54614581-303f-4d00-b33f-7736e4b17844" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/controllers/booking.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/controllers/booking.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/booking.view.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/booking.view.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/car.view.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/car.view.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/client.view.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/client.view.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/table.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/table.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/db.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

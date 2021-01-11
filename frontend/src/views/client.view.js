@@ -15,6 +15,12 @@ class ClientView {
     });
   }
 
+  bindInsert = handler => this.table.bindInsert(handler);
+
+  bindUpdate = handler => this.table.bindUpdate(handler);
+
+  bindDelete = handler => this.table.bindDelete(handler);
+
   displayClients(clients) {
     const data = {
       elements: clients,
@@ -25,4 +31,6 @@ class ClientView {
 
     this.table.displayData(data);
   }
+
+  displayErrors = (validations, id) => this.table.displayErrors(validations, id);
 }

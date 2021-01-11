@@ -26,6 +26,12 @@ class CarView {
     });
   }
 
+  bindInsert = handler => this.table.bindInsert(handler);
+
+  bindUpdate = handler => this.table.bindUpdate(handler);
+
+  bindDelete = handler => this.table.bindDelete(handler);
+
   displayCars({cars, garages}) {
     const data = {
       elements: cars,
@@ -36,4 +42,6 @@ class CarView {
 
     this.table.displayData(data);
   }
+
+  displayErrors = (validations, id) => this.table.displayErrors(validations, id);
 }
